@@ -1,4 +1,4 @@
-import React, { useReducer } from "react";
+import React from "react";
 import axios from "axios";
 import ContextProvider from "./ContextProvider";
 export const AppContext = React.createContext();
@@ -116,45 +116,7 @@ const useAction = (state, dispatch) => {
 
 const middleware = (params) => {
   const { state, dispatch, action, extensions } = params;
-  const { axios } = extensions;
   switch (action.type) {
-    case actionTypes.GET_CLIENT_ID:
-      //   axios({
-      //     method: "GET",
-      //     url: "http://localhost:5000/getId",
-      //     headers: {
-      //       withCredentials: false,
-      //       "Content-Type": "application/json",
-      //       //Accept: "application/json",
-      //       //Origin: "http://localhost:3000",
-      //     },
-      //   }).then((response) => {
-      //     dispatch({
-      //       type: actionTypes.SET_CLIENT_ID,
-      //       id: response.id,
-      //     });
-      //   });
-      break;
-    case actionTypes.CONNECT:
-      //   axios({
-      //     method: "POST",
-      //     url: `http://localhost:5000/connect` + action.id,
-      //     headers: {
-      //       withCredentials: false,
-      //       "Content-Type": "application/json",
-      //       //Accept: "application/json",
-      //       //Origin: "http://localhost:3000",
-      //     },
-      //   }).then((response) => {
-      //     dispatch({
-      //       type: actionTypes.SET_CONNECTION_ID,
-      //       id: response.id,
-      //     });
-      //    REMEMBER TO ASSIGN FALSE TO displayLoading state
-      //   });
-      break;
-    case actionTypes.DISCONNECT:
-      break;
     default:
       return dispatch(action);
   }
